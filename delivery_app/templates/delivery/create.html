@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Delivery</title>
+</head>
+<body>
+    <h1>Create a Delivery</h1>
+    <form method="POST" action="{% url 'create_delivery' %}">
+        {% csrf_token %}
+
+        <label for="sender">Sender Name:</label>
+        <input type="text" id="sender" name="sender_name" required><br><br>
+
+        <label for="receiver">Receiver Name:</label>
+        <input type="text" id="receiver" name="receiver_name" required><br><br>
+
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="delivery_address" required></textarea><br><br>
+
+        <label for="timeslot">Preferred Time Slot:</label>
+        <select id="timeslot" name="delivery_time_slot" required>
+            <option value="Morning">Morning (8 AM - 12 PM)</option>
+            <option value="Afternoon">Afternoon (12 PM - 4 PM)</option>
+            <option value="Evening">Evening (4 PM - 8 PM)</option>
+        </select><br><br>
+
+        <button type="submit">Create Delivery</button>
+    </form>
+</body>
+</html>
